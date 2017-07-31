@@ -3,9 +3,11 @@ package com.pfariasmunoz.advanced.functions
 class Request(val method: String, val query: String, val contentType: String)
 class Status(var code: Int, var description: String)
 class Response(var content: String, var status: Status) {
-    fun status(status: Status.() -> Unit) {
+//    fun status(status: Status.() -> Unit) {
+//
+//    }
 
-    }
+    operator fun  invoke(status: Status.() -> Unit) {}
 }
 
 class RouteHandler(val request: Request, val response: Response) {
@@ -15,7 +17,7 @@ class RouteHandler(val request: Request, val response: Response) {
     }
 }
 
-fun response(response: Response.() -> Unit) {}
+// fun response(response: Response.() -> Unit) {}
 
 fun routeHandler(path: String, f: RouteHandler.() -> Unit): RouteHandler.() -> Unit = f
 
@@ -26,12 +28,9 @@ fun main(args: Array<String>) {
             // Prossess the query
         }
         response {
-            status {
-                code = 404
-                description = "not faund"
-            }
+            code = 404
+            description = "not faund"
         }
 
     }
-
 }
