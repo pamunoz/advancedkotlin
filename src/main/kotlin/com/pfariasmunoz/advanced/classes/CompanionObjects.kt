@@ -1,6 +1,6 @@
 package com.pfariasmunoz.advanced.classes
 
-class Log() {
+class Log private constructor() {
     companion object Factory {
         // this annotation is for accessing as an static method in java
         @JvmStatic fun createFileLog(filename: String): Log = Log(filename)
