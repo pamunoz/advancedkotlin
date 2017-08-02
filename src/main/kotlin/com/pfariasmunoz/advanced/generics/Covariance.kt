@@ -21,3 +21,5 @@ fun main(args: Array<String>) {
     val ro = ReadOnly<Customer>()
     ro.getAll()
 }
+
+
