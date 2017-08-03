@@ -8,6 +8,13 @@ fun <T>printList(list: List<T>) {
 
 }
 
+inline fun <reified T> erased(input: List<Any>) {
+    // We can Check for the type with the {inline} and {reified}
+    if (input is T) {
+
+    }
+}
+
 fun main(args: Array<String>) {
 
     val listOfStrings = listOf("One", "Two", "Three", "Four", "Five")
